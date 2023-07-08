@@ -1,4 +1,4 @@
-import { FC, Suspense, useContext, useState } from 'react'
+import { FC, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { MainPageAsync } from './pages/MainPage/MainPage.async'
