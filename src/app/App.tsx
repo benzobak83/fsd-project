@@ -1,11 +1,9 @@
-import { FC, Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import './styles/index.scss'
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme'
-import { MainPage } from 'pages/MainPage'
-import { AboutPage } from 'pages/AboutPage'
 import { cn } from 'shared/lib/classNames/classNames'
+import { AppRouter } from 'app/providers/router'
 
 export const App: FC = () => {
   const { theme, toggleTheme } = useTheme()
@@ -15,12 +13,7 @@ export const App: FC = () => {
       <button onClick={toggleTheme}>TOGGLE THEME</button>
       <Link to={'/'}>main</Link>
       <Link to={'/about'}>about</Link>
-      <Suspense fallback={<div>loading...</div>}>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </Suspense>
+      <AppRouter />
     </div>
   )
 }
