@@ -25,6 +25,9 @@
     ],
     "ignorePatterns": ["dist"],
     "rules": {
+        "react/jsx-indent": [2, 4],
+        "react/jsx-indent-props": [2, 4],
+        "indent": [2, 4],
         "unused-imports/no-unused-imports": "error",
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/ban-ts-comment": "off",
