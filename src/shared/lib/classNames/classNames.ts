@@ -9,7 +9,7 @@ export const cn = (
     cls,
     ...additional.filter(Boolean),
     Object.entries(mods)
-      .filter(([className, value]) => Boolean(value))
-      .map(([className, value]) => className)
+      .filter(([, value]) => Boolean(value))
+      .map(([className]) => className)
   ].join(' ')
 }
