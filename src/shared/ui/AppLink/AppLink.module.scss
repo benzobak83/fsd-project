@@ -1,13 +1,15 @@
 @use 'app/styles/mixins/mixins' as m;
 
 .AppLink {
-  color: var(--primary-color);
-  @include m.hoverOpacity;
+    color: var(--primary-color);
+
+    @include m.hover-opacity;
 }
 
 .primary {
-  color: var(--primary-color);
+    color: var(--primary-color);
 }
+
 .secondary {
-  color: var(--inverted-secondary-color);
+    color: var(--inverted-secondary-color);
 }
