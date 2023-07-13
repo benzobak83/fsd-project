@@ -1,3 +1,4 @@
+import { BugButton } from 'app/providers/ErrorBoundary'
 import { Button } from 'shared/ui/Button/Button'
 import { FC, useState } from 'react'
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher'
@@ -22,6 +23,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             ])}
         >
             <Button onClick={onToggle}>toggle</Button>
+            <BugButton/>
             <div className={styles.switchers}>
                 <ThemeSwitcher className={styles.theme} />
                 <LangSwitcher />

@@ -1,0 +1,15 @@
+.ErrorPage {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.errorText {
+    color: var(--error-color);
+    font: var(--font-l);
+}
+
+

@@ -1,5 +1,6 @@
 import './styles/index.scss'
 import { AppRouter } from 'app/providers/router'
+import { ErrorBoundary } from './providers/ErrorBoundary'
 import { FC, Suspense } from 'react'
 import { NavBar } from 'widgets/NavBar'
 import { PageLoader } from 'widgets/PageLoader'
@@ -12,13 +13,15 @@ export const App: FC = () => {
 
     return (
         <div className={cn('app', {}, [theme])}>
-            <Suspense fallback={<PageLoader/>}>
-                <NavBar />
-                <section className="content-page">
-                    <Sidebar />
-                    <AppRouter />
-                </section>
-            </Suspense>
+            <ErrorBoundary>
+                <Suspense fallback={<PageLoader />}>
+                    <NavBar />
+                    <section className="content-page">
+                        <Sidebar />
+                        <AppRouter />
+                    </section>
+                </Suspense>
+            </ErrorBoundary>
         </div>
     )
 }
