@@ -5,11 +5,13 @@ export const cn = (
     mods: Mods = {},
     additional: string[] = []
 ): string => {
-    return [
+    const resultArray = [
         cls,
         ...additional.filter(Boolean),
-        Object.entries(mods)
+        ...Object.entries(mods)
             .filter(([, value]) => Boolean(value))
             .map(([className]) => className)
-    ].join(' ')
+    ]
+    
+    return resultArray.join(' ')
 }
