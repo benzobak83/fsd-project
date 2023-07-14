@@ -1,4 +1,5 @@
 import { BuildOptions } from './types/config'
+import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
@@ -21,6 +22,9 @@ export function buildPlugins({
             __IS_DEV__: JSON.stringify(isDev)
         }),
         isDev && new webpack.HotModuleReplacementPlugin(),
-        isDev && new ReactRefreshWebpackPlugin()
+        isDev && new ReactRefreshWebpackPlugin(),
+        new BundleAnalyzerPlugin({
+            openAnalyzer: Boolean(process.env.ANALYZER_BUNDLE)
+        })
     ]
 }
