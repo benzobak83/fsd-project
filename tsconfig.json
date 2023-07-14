@@ -22,7 +22,7 @@
 
    "include": [
     "src/**/*",
-    "./config/jest/jest-setup.ts"
+    "config/**/*",
   ],
 
 }
