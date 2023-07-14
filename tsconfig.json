@@ -14,13 +14,17 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
-
-
-
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
 
+   "include": [
+    "src/**/*",
+    "./config/jest/jest-setup.ts"
+  ],
+
 }
+ 
+
