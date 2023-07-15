@@ -6,7 +6,8 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:storybook/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -23,16 +24,27 @@
         "unused-imports",
         "sort-imports-es6-autofix"
     ],
-    "ignorePatterns": ["dist"],
+    "ignorePatterns": [
+        "dist"
+    ],
     "settings": {
         "react": {
-          "version": "detect"
+            "version": "detect"
         }
-      },
+    },
     "rules": {
-        "react/jsx-indent": [2, 4],
-        "react/jsx-indent-props": [2, 4],
-        "indent": [2, 4],
+        "react/jsx-indent": [
+            2,
+            4
+        ],
+        "react/jsx-indent-props": [
+            2,
+            4
+        ],
+        "indent": [
+            2,
+            4
+        ],
         "unused-imports/no-unused-imports": "error",
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/ban-ts-comment": "off",
@@ -40,13 +52,18 @@
         "no-extra-boolean-cast": "off",
         "react/no-unescaped-entities": "off",
         "@typescript-eslint/no-empty-interface": "error",
-        "@typescript-eslint/no-unused-vars":"warn",
+        "@typescript-eslint/no-unused-vars": "warn",
         "sort-imports-es6-autofix/sort-imports-es6": [
             2,
             {
                 "ignoreCase": false,
                 "ignoreMemberSort": false,
-                "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+                "memberSyntaxSortOrder": [
+                    "none",
+                    "all",
+                    "multiple",
+                    "single"
+                ]
             }
         ]
     }

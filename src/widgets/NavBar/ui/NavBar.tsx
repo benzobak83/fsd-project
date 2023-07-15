@@ -8,6 +8,7 @@ interface NavbarProps {
 }
 
 export const NavBar: FC<NavbarProps> = ({ className }) => {
+  
     return (
         <div className={cn(styles.navbar, {}, [className])}>
             <div className={cn(styles.links)}>
