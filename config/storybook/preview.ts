@@ -1,4 +1,5 @@
 import { Preview } from '@storybook/react'
+import { RouterDecorator } from 'shared/config/storybook/decorators/RouterDecorator/RouterDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/decorators/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator';
 
@@ -12,7 +13,7 @@ const preview: Preview = {
             }
         }
     },
-    decorators: [StyleDecorator, ThemeDecorator]
+    decorators: [StyleDecorator, ThemeDecorator, RouterDecorator]
 }
 
 
