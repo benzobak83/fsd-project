@@ -2,7 +2,7 @@ import { ErrorPage } from './ErrorPage'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-    title: 'shared/ErrorPage',
+    title: 'widgets/ErrorPage',
     component: ErrorPage,
     tags: ['autodocs']
 } satisfies Meta<typeof ErrorPage>

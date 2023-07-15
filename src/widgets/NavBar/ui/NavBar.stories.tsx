@@ -2,7 +2,7 @@ import { NavBar } from './NavBar'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-    title: 'shared/NavBar',
+    title: 'widgets/NavBar',
     component: NavBar,
     tags: ['autodocs']
 } satisfies Meta<typeof NavBar>

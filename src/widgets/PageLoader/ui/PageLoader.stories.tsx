@@ -2,7 +2,7 @@ import { PageLoader } from './PageLoader'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-    title: 'shared/PageLoader',
+    title: 'widgets/PageLoader',
     component: PageLoader,
     tags: ['autodocs']
 } satisfies Meta<typeof PageLoader>
