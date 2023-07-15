@@ -1,0 +1,12 @@
+.ThemeDecorator { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    min-height: 0;
+}
+
+.storyWrapper {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}

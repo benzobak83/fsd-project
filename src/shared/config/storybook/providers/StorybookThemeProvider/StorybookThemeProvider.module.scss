@@ -1,0 +1,13 @@
+.StorybookThemeProvider {
+    min-height: 0;
+}
+
+.themesList {
+    padding: 10px;
+    display: flex;
+    gap: 30px
+}
+
+.active {
+    border-bottom: 1px solid var(--primary-color);
+}

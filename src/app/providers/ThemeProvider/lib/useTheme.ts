@@ -1,9 +1,10 @@
+import { Dispatch, SetStateAction, useContext } from 'react'
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext'
-import { useContext } from 'react'
 
 interface UseThemeResult {
   toggleTheme: () => void
   theme: Theme
+  setTheme: Dispatch<SetStateAction<Theme>>
 }
 
 export const useTheme = (): UseThemeResult => {
@@ -17,5 +18,5 @@ export const useTheme = (): UseThemeResult => {
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
     }
 
-    return { theme, toggleTheme }
+    return { theme, setTheme, toggleTheme }
 }

@@ -1,6 +1,6 @@
 import { Preview } from '@storybook/react'
-import { StyleDecarator } from '../../src/shared/config/storybook/StyleDecarator/StyleDecarator';
-import { ThemeDecarator } from '../../src/shared/config/storybook/ThemeDecarator/ThemeDecarator';
+import { StyleDecorator } from '../../src/shared/config/storybook/decorators/StyleDecorator/StyleDecorator';
+import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator';
 
 const preview: Preview = {
     parameters: {
@@ -12,7 +12,7 @@ const preview: Preview = {
             }
         }
     },
-    decorators: [StyleDecarator, ThemeDecarator]
+    decorators: [StyleDecorator, ThemeDecorator]
 }
 
 
