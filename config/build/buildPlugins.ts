@@ -23,7 +23,7 @@ export function buildPlugins({
         }),
         isDev && new webpack.HotModuleReplacementPlugin(),
         isDev && new ReactRefreshWebpackPlugin(),
-        new BundleAnalyzerPlugin({
+        isDev && new BundleAnalyzerPlugin({
             openAnalyzer: Boolean(process.env.ANALYZER_BUNDLE)
         })
     ]
