@@ -58,6 +58,7 @@
     "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.7.6",
     "react-i18next": "^13.0.2",
+    "react-refresh": "^0.14.0",
     "sass": "^1.63.6",
     "sass-loader": "^13.3.2",
     "storybook": "^7.0.27",
