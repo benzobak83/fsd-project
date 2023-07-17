@@ -1,26 +1,52 @@
 import { ButtonHTMLAttributes, FC } from 'react'
-import { cn } from 'shared/lib/classNames/classNames'
+import { Mods, cn } from 'shared/lib/classNames/classNames'
 import styles from './Button.module.scss'
 
-export enum ThemeButton {
-  CLEAR = 'clear',
-  OUTLINE = 'outline'
+export enum ButtonVariant {
+  TEXT = 'text',
+  OUTLINE = 'outline',
+  CONTAINED = 'contained'
+}
+
+export enum ButtonColor {
+    PRIMARY = 'primary',
+}
+
+export enum ButtonSize {
+    M = 'm',
+    L = 'l',
+    XL = 'xl'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
-  theme?: ThemeButton
+  variant?: ButtonVariant
+  size?: ButtonSize
+  square?: boolean
+  invertedColor?: boolean
 }
 
 export const Button: FC<ButtonProps> = ({
     className,
     children,
-    theme,
+    variant = ButtonVariant.TEXT,
+    color = ButtonColor.PRIMARY,
+    size = ButtonSize.M,
+    invertedColor, 
+    square,
     ...props
 }) => {
+    const mods: Mods = {
+        [styles[variant]]: !!variant,
+        [styles[color]]: !!color,
+        [styles[size]]: !!size,
+        [styles.invertedColor]: invertedColor,
+        [styles.square]: square
+    }
+
     return (
         <button
-            className={cn(styles.Button, {}, [className, styles[theme]])}
+            className={cn(styles.Button, mods, [className])}
             {...props}
         >
             {children}

@@ -1,4 +1,4 @@
-import { Button, ThemeButton } from '../Button/Button'
+import { Button, ButtonVariant } from '../Button/Button'
 import { FC } from 'react'
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import { cn } from 'shared/lib/classNames/classNames'
@@ -13,9 +13,10 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
     const { theme, toggleTheme } = useTheme()
     return (
         <Button
-            theme={ThemeButton.CLEAR}
+            variant={ButtonVariant.TEXT}
             onClick={toggleTheme}
             className={cn('', {}, [className])}
+            invertedColor={true}
         >
             {theme === Theme.LIGHT ? <LightIcon /> : <DarkIcon />}
         </Button>

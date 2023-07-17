@@ -6,7 +6,7 @@ declare module '*.scss' {
   export = classNames
 }
 declare module '*.svg' {
-  const SVG: string
+  const SVG: any
   export = SVG
 }
 declare module '*.png' {}

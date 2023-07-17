@@ -1,17 +1,65 @@
+@import '../../../app/styles/mixins/mixins'; 
+
 .Button {
     cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border-color: transparent;
+
+    @include hover-opacity
 }
 
-.clear {
+// ButtonVariant
+.text {
     padding: 0;
-    border: none;
+    border-radius: 0;
     background: none;
     outline: none;
 }
 
-.outline {
-    padding: 10px 15px;
-    color: var(--primary-color);
+.outline.primary {
     border: 1px solid var(--primary-color);
     background: none;
+}
+
+.outline.primary.invertedColor {
+    border: 1px solid var(--inverted-primary-color);
+    background: none;
+}
+
+.contained.primary {
+    background-color: var(--bg-color);
+}
+
+.contained.primary.invertedColor {
+    background-color: var(--inverted-bg-color);
+}
+
+// ButtonColor
+.primary {
+    color: var(--primary-color) 
+}
+
+.primary.invertedColor {
+    color: var(--inverted-primary-color)
+}
+
+
+// ButtonSize
+.m {
+    min-width: var(--font-line-m);
+    min-height: var(--font-line-m);
+    font: var(--font-m);
+}
+
+.l {
+    min-width: var(--font-line-l);
+    min-height: var(--font-line-l);
+    font: var(--font-l);
+}
+
+.xl {
+    min-width: var(--font-line-xl);
+    min-height: var(--font-line-xl);
+    font: var(--font-xl);
 }
