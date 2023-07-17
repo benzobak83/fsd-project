@@ -26,6 +26,6 @@ jobs:
       run: npm run lint:style
     - name: unit testing
       run: npm run test:unit
-    - name: screenshot testing
-      run: npm run test:ui:ci
+    # - name: screenshot testing //TODO! нужно будет заменить среду с браузера на докер
+    #   run: npm run test:ui:ci
       
