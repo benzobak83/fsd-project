@@ -22,6 +22,7 @@
         "react",
         "@typescript-eslint",
         "unused-imports",
+        "react-hooks",
         "sort-imports-es6-autofix"
     ],
     "ignorePatterns": [
@@ -45,6 +46,8 @@
             2,
             4
         ],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
         "unused-imports/no-unused-imports": "error",
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/ban-ts-comment": "off",
