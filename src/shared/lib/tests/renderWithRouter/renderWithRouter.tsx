@@ -14,7 +14,7 @@ export const componentRender = (
 ) => {
     const {route = '/'} = options
     return render(
-        <MemoryRouter>
+        <MemoryRouter initialEntries={[route]}>
             <I18nextProvider i18n={i18nForTest}>
                 {component}
             </I18nextProvider>

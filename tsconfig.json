@@ -24,6 +24,7 @@
     "src/**/*",
     "./webpack.config.ts",
     "config/**/*",
+    "./.eslintrc.json"
   ],
 
 }
