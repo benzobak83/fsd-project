@@ -1,4 +1,4 @@
-.app.light {
+body:has(.app.light) {
     --bg-color: rgb(228 228 228);
     --inverted-bg-color: rgb(2 2 63);
 

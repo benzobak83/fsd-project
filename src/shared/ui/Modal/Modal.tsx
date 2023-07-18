@@ -1,5 +1,6 @@
 import {FC, ReactNode, useCallback, useEffect, useRef, useState} from 'react'
 import { ModalCloseFn } from 'shared/hooks/useModal'
+import { Portal } from '../Portal/Portal'
 import {cn} from 'shared/lib/classNames/classNames'
 import styles from './Modal.module.scss'
 
@@ -60,12 +61,14 @@ export const Modal:FC<ModalProps> = ({className, children, open, onClose}) => {
     }
 
     return (
-        <div className={cn(styles.Modal, mods, [className])}>
-            <div className={styles.overlay} onClick={closeModal}>
-                <div className={styles.content} onClick={handleClickContent}>
-                    {children}
+        <Portal>
+            <div className={cn(styles.Modal, mods, [className])}>
+                <div className={styles.overlay} onClick={closeModal}>
+                    <div className={styles.content} onClick={handleClickContent}>
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
     )
 }
