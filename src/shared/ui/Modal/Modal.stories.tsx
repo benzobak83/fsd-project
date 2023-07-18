@@ -16,5 +16,3 @@ export const Default: Story = {
         open: true
     }
 }
-
-

@@ -1,5 +1,5 @@
 import {FC, ReactNode, useCallback, useEffect, useRef, useState} from 'react'
-import { ModalCloseFn } from 'shared/hooks/useModal'
+import { ModalCloseFn } from 'shared/lib/hooks/useModal'
 import { Portal } from '../Portal/Portal'
 import {cn} from 'shared/lib/classNames/classNames'
 import styles from './Modal.module.scss'

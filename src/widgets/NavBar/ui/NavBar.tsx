@@ -2,7 +2,7 @@ import { Button } from 'shared/ui/Button/Button'
 import { FC } from 'react'
 import { Modal } from 'shared/ui/Modal/Modal'
 import { cn } from 'shared/lib/classNames/classNames'
-import { useModal } from 'shared/hooks/useModal'
+import { useModal } from 'shared/lib/hooks/useModal'
 import styles from './NavBar.module.scss'
 
 interface NavbarProps {
