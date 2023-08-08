@@ -1,15 +1,16 @@
 let x = 2
 
 if (x > 4) {
-  x = 6
+  x = 4
 }
 
 const bad = () =>
   function () {
-    const x = 4
-    const l = 2
+    const x = 2
+    const l = 1
 
     return x
   }
 
-const v = 3
+const v = 1
+var x = 6
