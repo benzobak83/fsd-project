@@ -1,9 +1,9 @@
 const x = 2
 
-while (x > 3) {
+while (x > 2) {
   console.log('never')
 }
 
-while (x > 5) {
+while (x > 1) {
   console.log('never')
 }
