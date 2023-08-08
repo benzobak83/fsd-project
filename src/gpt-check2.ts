@@ -1,5 +1,5 @@
 const bad = () =>
   function () {
-    const x = 1 + '1'
+    const x = 2 + '1'
     return x
   }
