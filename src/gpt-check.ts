@@ -1,9 +1,15 @@
-const x = 2
+let x = 2
 
-while (x > 2) {
-  console.log('never')
+if (x > 4) {
+  x = 6
 }
 
-while (x > 1) {
-  console.log('never')
-}
+const bad = () =>
+  function () {
+    const x = 4
+    const l = 2
+
+    return x
+  }
+
+const v = 3
