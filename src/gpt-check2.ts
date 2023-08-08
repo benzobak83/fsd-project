@@ -1,5 +1,1 @@
-const bad = () =>
-  function () {
-    const x = 2 + '1'
-    return x
-  }
+const x = 1
