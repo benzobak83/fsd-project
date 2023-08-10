@@ -7,17 +7,13 @@ import { Sidebar } from 'widgets/Sidebar'
 import { cn } from 'shared/lib/classNames/classNames'
 import { useTheme } from './providers/ThemeProvider'
 
-
-
 export const App: FC = () => {
     const { theme } = useTheme()
 
-
-    
     return (
         <div className={cn('app', {}, [theme])}>
             <ErrorBoundary>
-                <Suspense fallback={<PageLoader />}>  
+                <Suspense fallback={<PageLoader />}>
                     <NavBar />
                     <section className="content-page">
                         <Sidebar />

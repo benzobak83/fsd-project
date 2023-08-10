@@ -1,3 +1,3 @@
 export { createReduxStore } from './config/store';
-export { StateSchema } from './config/types';
+export { StateSchema } from './config/types/store';
 

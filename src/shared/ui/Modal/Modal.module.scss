@@ -8,29 +8,27 @@
 
 .content {
     background-color: var(--bg-color);
+    min-width: 400px;
     padding: 20px;
     border-radius: 12px;
-    opacity: 0;
-    transform: scale(10%);
-    transition: transform 0.2s, opacity 0.2s;
     max-width: 50%;
+    text-align: center;
 }
 
 .Modal.opened {
     z-index: var(--modal-z-index);
     pointer-events: all;
     opacity: 1;
+ 
 
     .content {
-        opacity: 1;
-        transform: scale(100%);
+        animation: modalFadeIn .2s;
     }
 }
 
 .Modal.closing {
     .content {
-        opacity: 0;
-        transform: scale(10%);
+        animation: modalFadeOut .2s;
     }
 }
 
@@ -42,4 +40,28 @@
     justify-content: center;
     align-items: center;
 
+}
+
+@keyframes modalFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(10%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(100%);
+    }
+}
+
+@keyframes modalFadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(100%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(10%);
+    }
 }

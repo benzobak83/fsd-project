@@ -5,7 +5,7 @@ import { routeConfig } from 'shared/config/routeConfig/routeConfig'
 
 export const AppRouter: FC = () => {
     return (
-        <Suspense fallback={<PageLoader label='Загрузка страницы...'/>}>
+        <Suspense fallback={<PageLoader label="Загрузка страницы..." />}>
             <Routes>
                 {Object.values(routeConfig).map(({ element, path }) => (
                     <Route

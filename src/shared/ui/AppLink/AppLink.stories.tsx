@@ -6,9 +6,9 @@ const meta = {
     component: AppLink,
     tags: ['autodocs'],
     args: {
-        to:'/',
-        children:'link'
-    }
+        to: '/',
+        children: 'link',
+    },
 } satisfies Meta<typeof AppLink>
 
 export default meta
@@ -16,12 +16,11 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
     args: {
-        theme: AppLinkTheme.PRIMARY
-    }
+        theme: AppLinkTheme.PRIMARY,
+    },
 }
 export const Secondary: Story = {
     args: {
-        theme: AppLinkTheme.SECONDARY
-    }
+        theme: AppLinkTheme.SECONDARY,
+    },
 }
-

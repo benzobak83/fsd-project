@@ -1,10 +1,10 @@
-import {FC} from 'react'
-import {cn} from 'shared/lib/classNames/classNames'
+import { FC } from 'react'
+import { cn } from 'shared/lib/classNames/classNames'
 import styles from './Loader.module.scss'
 
 interface LoaderProps {
-   className?: string
-   label?: string
+    className?: string
+    label?: string
 }
 
 export const Loader: FC<LoaderProps> = ({ className, label }) => {

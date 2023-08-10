@@ -3,9 +3,9 @@ import { Mods, cn } from 'shared/lib/classNames/classNames'
 import styles from './Button.module.scss'
 
 export enum ButtonVariant {
-  TEXT = 'text',
-  OUTLINE = 'outline',
-  CONTAINED = 'contained'
+    TEXT = 'text',
+    OUTLINE = 'outline',
+    CONTAINED = 'contained',
 }
 
 export enum ButtonColor {
@@ -15,15 +15,16 @@ export enum ButtonColor {
 export enum ButtonSize {
     M = 'm',
     L = 'l',
-    XL = 'xl'
+    XL = 'xl',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string
-  variant?: ButtonVariant
-  size?: ButtonSize
-  square?: boolean
-  invertedColor?: boolean
+    className?: string
+    variant?: ButtonVariant
+    size?: ButtonSize
+    square?: boolean
+    invertedColor?: boolean
+    fullWidth?: boolean
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -32,7 +33,8 @@ export const Button: FC<ButtonProps> = ({
     variant = ButtonVariant.TEXT,
     color = ButtonColor.PRIMARY,
     size = ButtonSize.M,
-    invertedColor, 
+    invertedColor,
+    fullWidth,
     square,
     ...props
 }) => {
@@ -41,14 +43,12 @@ export const Button: FC<ButtonProps> = ({
         [styles[color]]: !!color,
         [styles[size]]: !!size,
         [styles.invertedColor]: invertedColor,
-        [styles.square]: square
+        [styles.square]: square,
+        [styles.fullWidth]: fullWidth,
     }
 
     return (
-        <button
-            className={cn(styles.Button, mods, [className])}
-            {...props}
-        >
+        <button className={cn(styles.Button, mods, [className])} {...props}>
             {children}
         </button>
     )

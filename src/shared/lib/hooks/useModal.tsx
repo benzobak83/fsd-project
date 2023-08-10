@@ -6,43 +6,43 @@ export type ModalCloseFn = () => void
 export function useModal<T extends Record<string, boolean>>(initialModals: T) {
     const [modals, setModals] = useState<T>(initialModals)
 
-  type ModalKey = keyof typeof modals
+    type ModalKey = keyof typeof modals
 
-  const closeModal: ModalCloseFn = useCallback(() => {
-      Object.keys(modals).map((modal) => {
-          if (modals[modal] === true) {
-              setModals((prev) => ({ ...prev, [modal]: false }))
-          }
-      })
-  }, [modals])
+    const closeModal: ModalCloseFn = useCallback(() => {
+        Object.keys(modals).map((modal) => {
+            if (modals[modal] === true) {
+                setModals((prev) => ({ ...prev, [modal]: false }))
+            }
+        })
+    }, [modals])
 
-  const openModal = useCallback((e: React.MouseEvent) => {
-      const target = e.currentTarget as HTMLButtonElement
-      const type = target.dataset.modalType as ModalKey
+    const openModal = useCallback((e: React.MouseEvent) => {
+        const target = e.currentTarget as HTMLButtonElement
+        const type = target.dataset.modalType as ModalKey
 
-      setModals((prev) => ({ ...prev, [type]: true }))
-  }, [])
+        setModals((prev) => ({ ...prev, [type]: true }))
+    }, [])
 
-  const registerTrigger = useCallback(
-      (type: ModalKey) => {
-          return { 'data-modal-type': type, onClick: openModal }
-      },
-      [openModal]
-  )
+    const registerTrigger = useCallback(
+        (type: ModalKey) => {
+            return { 'data-modal-type': type, onClick: openModal }
+        },
+        [openModal]
+    )
 
-  const registerModal = useCallback(
-      (modalName: ModalKey) => {
-          return { onClose: closeModal, open: modals[modalName] }
-      },
-      [modals, closeModal]
-  )
+    const registerModal = useCallback(
+        (modalName: ModalKey) => {
+            return { onClose: closeModal, open: modals[modalName] }
+        },
+        [modals, closeModal]
+    )
 
-  return {
-      openModal,
-      closeModal,
-      modals,
-      setModals,
-      registerTrigger,
-      registerModal
-  }
+    return {
+        openModal,
+        closeModal,
+        modals,
+        setModals,
+        registerTrigger,
+        registerModal,
+    }
 }

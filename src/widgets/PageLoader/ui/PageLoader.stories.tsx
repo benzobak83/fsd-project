@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 const meta = {
     title: 'widgets/PageLoader',
     component: PageLoader,
-    tags: ['autodocs']
+    tags: ['autodocs'],
 } satisfies Meta<typeof PageLoader>
 
 export default meta
@@ -14,7 +14,6 @@ export const Default: Story = {}
 
 export const WithLabel: Story = {
     args: {
-        label: 'loading...'
-    }
+        label: 'loading...',
+    },
 }
-

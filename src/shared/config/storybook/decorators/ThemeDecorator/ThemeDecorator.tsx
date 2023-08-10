@@ -1,9 +1,9 @@
-import { StoryFn } from "@storybook/react";
-import { StorybookThemeProvider } from "../../providers/StorybookThemeProvider/StorybookThemeProvider";
-import { ThemeProvider } from "app/providers/ThemeProvider";
+import { StoryFn } from '@storybook/react'
+import { StorybookThemeProvider } from '../../providers/StorybookThemeProvider/StorybookThemeProvider'
+import { ThemeProvider } from 'app/providers/ThemeProvider'
 import styles from './ThemeDecorator.module.scss'
 
-export const ThemeDecorator = (Story: StoryFn) => {    
+export const ThemeDecorator = (Story: StoryFn) => {
     return (
         <ThemeProvider>
             <StorybookThemeProvider>
@@ -16,4 +16,3 @@ export const ThemeDecorator = (Story: StoryFn) => {
         </ThemeProvider>
     )
 }
-

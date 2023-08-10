@@ -12,7 +12,7 @@ import MenuSvg from 'shared/assets/icons/menu.svg'
 import styles from './Sidebar.module.scss'
 
 interface SidebarProps {
-  className?: string
+    className?: string
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
@@ -24,7 +24,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
     return (
         <div
             className={cn(styles.Sidebar, { [styles.collapsed]: collapsed }, [
-                className
+                className,
             ])}
             data-testid="sidebar"
         >
@@ -60,7 +60,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 
             <div className={styles.switchers}>
                 <ThemeSwitcher className={styles.theme} />
-                <LangSwitcher className={styles.lang}/>
+                <LangSwitcher className={styles.lang} />
             </div>
         </div>
     )

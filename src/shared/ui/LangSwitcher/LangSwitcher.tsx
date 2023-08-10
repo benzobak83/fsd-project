@@ -4,7 +4,7 @@ import { cn } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 
 interface LangSwitcherProps {
-  className?: string
+    className?: string
 }
 
 export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
@@ -13,5 +13,9 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
     const toggle = async () => {
         i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
     }
-    return <Button className={cn('', {}, [className])} onClick={toggle}>{t('Язык')}</Button>
+    return (
+        <Button className={cn('', {}, [className])} onClick={toggle}>
+            {t('Язык')}
+        </Button>
+    )
 }

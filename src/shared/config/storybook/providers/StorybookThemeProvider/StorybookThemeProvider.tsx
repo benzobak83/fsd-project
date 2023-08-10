@@ -1,7 +1,7 @@
 import { Button } from 'shared/ui/Button/Button'
-import {FC, ReactNode} from 'react'
+import { FC, ReactNode } from 'react'
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
-import {cn} from 'shared/lib/classNames/classNames'
+import { cn } from 'shared/lib/classNames/classNames'
 import styles from './StorybookThemeProvider.module.scss'
 
 interface StorybookThemeProviderProps {
@@ -10,7 +10,9 @@ interface StorybookThemeProviderProps {
 
 const THEMES = Object.values(Theme)
 
-export const StorybookThemeProvider: FC<StorybookThemeProviderProps> = ({ children }) => {
+export const StorybookThemeProvider: FC<StorybookThemeProviderProps> = ({
+    children,
+}) => {
     const { theme, setTheme } = useTheme()
 
     return (
@@ -21,7 +23,7 @@ export const StorybookThemeProvider: FC<StorybookThemeProviderProps> = ({ childr
                         <Button
                             key={themeName}
                             className={cn('', {
-                                [styles.active]: theme === themeName
+                                [styles.active]: theme === themeName,
                             })}
                             onClick={() => setTheme(themeName)}
                         >

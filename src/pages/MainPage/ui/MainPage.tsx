@@ -5,8 +5,12 @@ import { useTranslation } from 'react-i18next'
 const MainPage: FC = () => {
     const { t } = useTranslation()
 
-    return <div>{t('Главная страница')}
-        <Counter/></div>
+    return (
+        <div>
+            {t('Главная страница')}
+            <Counter />
+        </div>
+    )
 }
 
 export default MainPage

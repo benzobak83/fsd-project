@@ -1,14 +1,13 @@
 import { Button } from 'shared/ui/Button/Button'
-import {FC} from 'react'
-import {cn} from 'shared/lib/classNames/classNames'
+import { FC } from 'react'
+import { cn } from 'shared/lib/classNames/classNames'
 import styles from './ErrorPage.module.scss'
 
 interface ErrorPageProps {
-   className?: string
+    className?: string
 }
 
-export const ErrorPage:FC<ErrorPageProps> = ({className}) => {
-
+export const ErrorPage: FC<ErrorPageProps> = ({ className }) => {
     const reloadPage = () => {
         location.reload()
     }

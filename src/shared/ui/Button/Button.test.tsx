@@ -1,5 +1,5 @@
 import { Button, ButtonColor, ButtonSize, ButtonVariant } from './Button'
-import {render, screen} from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 describe('Button component', () => {
     test('render text', () => {

@@ -1,10 +1,10 @@
-import { Counter } from 'entities/Counter';
+import { Counter } from 'entities/Counter'
 import { componentRender } from 'shared/lib/tests/renderWithRouter/renderWithRouter'
 import { fireEvent, screen } from '@testing-library/react'
 
 describe('Counter entitie', () => {
     test('test render', () => {
-        const initialState = {counter: {value: 10}}
+        const initialState = { counter: { value: 10 } }
         componentRender(<Counter />, { initialState })
 
         expect(screen.getByTestId('value')).toHaveTextContent('10')
@@ -27,7 +27,7 @@ describe('Counter entitie', () => {
         fireEvent.click(incrementBtn)
         expect(screen.getByTestId('value')).toHaveTextContent('9')
     })
-    
+
     test('test with empty store', () => {
         componentRender(<Counter />)
 
