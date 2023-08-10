@@ -86,7 +86,6 @@
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
     "@reduxjs/toolkit": "^1.9.5",
-    "code-review-gpt": "^0.0.34",
     "gh": "^2.8.9",
     "i18next": "^23.2.8",
     "i18next-browser-languagedetector": "^7.1.0",
