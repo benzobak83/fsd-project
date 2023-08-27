@@ -1,5 +1,5 @@
 import { FC, InputHTMLAttributes, useEffect, useRef, useState } from 'react'
-import { calculateCaretPosition } from './lib/calculateCaretPosition'
+import { calculateStringWidth } from './lib/calculateStringWidth'
 import { cn } from 'shared/lib/classNames/classNames'
 import styles from './Input.module.scss'
 
@@ -27,17 +27,12 @@ export const Input: FC<InputProps> = ({
     const ref = useRef<HTMLInputElement>(null)
 
     const [isFocused, setIsFocused] = useState<boolean>(false)
-    const [caretPosition, setCaretPosition] = useState<number>(0)
+    const [valueSoLong, setValueSoLong] = useState<boolean>(false)
+    const [inputValueWidth, setInputValueWidth] = useState<number>(0)
 
-    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const target = e.target
-        onChange?.(target.value)
-
-        if (target.value.length < caretPosition) {
-            //когда удаляется символ в середине текста каретка на 1мс становится в конец инпута,
-            //эта проверка предовтращает данное поведение
-            setCaretPosition(e.target.value.length)
-        }
+    const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value
+        onChange?.(value)
     }
 
     const onBlur = () => {
@@ -48,7 +43,23 @@ export const Input: FC<InputProps> = ({
     }
 
     const onSelect = (e: any) => {
-        setCaretPosition(e.target.selectionStart)
+        const target = e.target
+        const value = target.value
+
+        const selectionStart = target.selectionStart
+
+        const valueBeforeSelectionStart = value.slice(0, selectionStart)
+        const currentInputValueWidth = calculateStringWidth(
+            valueBeforeSelectionStart
+        )
+
+        if (currentInputValueWidth >= ref.current.clientWidth) {
+            setValueSoLong(true)
+        } else {
+            setValueSoLong(false)
+        }
+
+        setInputValueWidth(currentInputValueWidth)
     }
 
     useEffect(() => {
@@ -65,19 +76,21 @@ export const Input: FC<InputProps> = ({
                 <input
                     ref={ref}
                     type={type}
-                    onChange={onChangeHandler}
                     value={value}
-                    className={styles.input}
+                    className={cn(styles.input, {
+                        [styles.valueSoLong]: valueSoLong,
+                    })}
+                    onChange={changeHandler}
                     onFocus={onFocus}
                     onBlur={onBlur}
                     onSelect={onSelect}
                     {...props}
                 />
-                {isFocused && (
+                {isFocused && !valueSoLong && (
                     <span
                         className={styles.caret}
                         style={{
-                            left: `${calculateCaretPosition(caretPosition)}px`,
+                            left: `${inputValueWidth}px`,
                         }}
                     ></span>
                 )}
