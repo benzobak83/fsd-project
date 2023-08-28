@@ -17,7 +17,8 @@
     "test:ui:ci": "concurrently 'npm run storybook:build' 'npx loki --requireReference --reactUri file:./storybook-static'",
     "analyzer:bundle": "ANALYZER_BUNDLE=true webpack --env mode=production",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "storybook:build": "storybook build -c ./config/storybook"
+    "storybook:build": "storybook build -c ./config/storybook",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.22.8",
@@ -84,7 +85,8 @@
     "webpack": "^5.88.0",
     "webpack-bundle-analyzer": "^4.9.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^4.15.1",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "@babel/preset-react": "^7.22.5",
