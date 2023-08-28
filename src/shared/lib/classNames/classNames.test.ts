@@ -1,4 +1,4 @@
-import { cn } from "shared/lib/classNames/classNames"
+import { cn } from 'shared/lib/classNames/classNames'
 
 describe('classNames', () => {
     test('classNames with class', () => {
@@ -10,23 +10,25 @@ describe('classNames', () => {
         )
     })
     test('classNames with true mod', () => {
-        expect(cn('className', {'modTrue': true}, ['secondClassName'])).toBe(
+        expect(cn('className', { modTrue: true }, ['secondClassName'])).toBe(
             'className secondClassName modTrue'
         )
     })
     test('classNames with false mod', () => {
-        expect(cn('className', {'modFalse' : false}, ['secondClassName'])).toBe(
+        expect(cn('className', { modFalse: false }, ['secondClassName'])).toBe(
             'className secondClassName'
         )
     })
     test('classNames with undefined mod', () => {
-        expect(cn('className', {'modFalse' : undefined}, ['secondClassName'])).toBe(
-            'className secondClassName'
-        )
+        expect(
+            cn('className', { modFalse: undefined }, ['secondClassName'])
+        ).toBe('className secondClassName')
     })
     test('classNames with true and false mod', () => {
-        expect(cn('className', {'modFalse' : false, 'modTrue': true}, ['secondClassName'])).toBe(
-            'className secondClassName modTrue'
-        )
+        expect(
+            cn('className', { modFalse: false, modTrue: true }, [
+                'secondClassName',
+            ])
+        ).toBe('className secondClassName modTrue')
     })
 })

@@ -10,8 +10,8 @@ export const cn = (
         ...additional.filter(Boolean),
         ...Object.entries(mods)
             .filter(([, value]) => Boolean(value))
-            .map(([className]) => className)
+            .map(([className]) => className),
     ]
-    
+
     return resultArray.join(' ')
 }
