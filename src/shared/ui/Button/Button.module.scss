@@ -1,12 +1,18 @@
 @import '../../../app/styles/mixins/mixins'; 
 
 .Button {
-    cursor: pointer;
     padding: 10px 15px;
     border-radius: 8px;
     border-color: transparent;
+    cursor: pointer;
 
-    @include hover-opacity
+    @include hover-opacity  
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: .5;
+    cursor: not-allowed ;
 }
 
 .fullWidth {
@@ -71,3 +77,5 @@
     min-height: var(--font-line-xl);
     font: var(--font-xl);
 }
+
+

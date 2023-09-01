@@ -45,6 +45,7 @@ export const Button: FC<ButtonProps> = ({
         [styles.invertedColor]: invertedColor,
         [styles.square]: square,
         [styles.fullWidth]: fullWidth,
+        [styles.disabled]: props.disabled,
     }
 
     return (

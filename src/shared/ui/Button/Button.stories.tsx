@@ -30,6 +30,7 @@ export const Contained: Story = {
         variant: ButtonVariant.CONTAINED,
     },
 }
+
 export const ContainedAndInverted: Story = {
     args: {
         children: 'Contained Button with invertedColor',
@@ -37,6 +38,15 @@ export const ContainedAndInverted: Story = {
         invertedColor: true,
     },
 }
+
+export const Disabled: Story = {
+    args: {
+        children: 'Disabled Button',
+        variant: ButtonVariant.CONTAINED,
+        disabled: true,
+    },
+}
+
 export const ButtonM: Story = {
     args: {
         children: 'Button M size',

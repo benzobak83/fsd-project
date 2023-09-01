@@ -24,11 +24,15 @@ export const loginSlice = createSlice({
             .addCase(loginByUsername.pending, (state) => {
                 state.error = undefined
                 state.isLoading = true
+                console.log('311')
             })
             .addCase(loginByUsername.fulfilled, (state) => {
+                console.log('211')
+                console.log(loginByUsername)
                 state.isLoading = false
             })
             .addCase(loginByUsername.rejected, (state, action) => {
+                console.log(action.payload + '111')
                 state.error = action.payload
                 state.isLoading = false
             })

@@ -1,6 +1,7 @@
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
 import { FC, useCallback } from 'react'
 import { Input } from 'shared/ui/Input/Input'
+import { Text, TextColor } from 'shared/ui/Text/Text'
 import { cn } from 'shared/lib/classNames/classNames'
 import { getLoginState } from '../../model/selectors/getLoginState'
 import { loginActions } from '../..//model/slice/loginSlice'
@@ -17,7 +18,8 @@ interface LoginFormProps {
 
 export const LoginForm: FC<LoginFormProps> = ({ className }) => {
     const dispatch = useAppDispatch()
-    const { password, username } = useAppSelector(getLoginState)
+    const { password, username, isLoading, error } =
+        useAppSelector(getLoginState)
 
     const onChangeUsername = useCallback(
         (username: string) => {
@@ -39,6 +41,8 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
 
     return (
         <div className={cn(styles.LoginForm, {}, [className])}>
+            {!!error && error}
+            <Text color={TextColor.ERROR}>fdfd</Text>
             <Input
                 label="Логин"
                 autoFocus
@@ -54,6 +58,7 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
                 <Button
                     variant={ButtonVariant.OUTLINE}
                     fullWidth
+                    disabled={isLoading}
                     onClick={onLoginClick}
                 >
                     Войти
