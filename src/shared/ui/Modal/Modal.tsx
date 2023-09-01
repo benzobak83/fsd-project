@@ -1,11 +1,13 @@
 import { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react'
 import { ModalCloseFn } from 'shared/lib/hooks/useModal'
 import { Portal } from '../Portal/Portal'
+import { Text, TextVariant } from '../Text/Text'
 import { cn } from 'shared/lib/classNames/classNames'
 import styles from './Modal.module.scss'
 
 interface ModalProps {
     className?: string
+    title?: string
     children: ReactNode
     open: boolean
     onClose: ModalCloseFn
@@ -15,6 +17,7 @@ const ANIMATION_DELAY = 190
 
 export const Modal: FC<ModalProps> = ({
     className,
+    title,
     children,
     open,
     onClose,
@@ -73,6 +76,11 @@ export const Modal: FC<ModalProps> = ({
                         className={styles.content}
                         onClick={handleClickContent}
                     >
+                        {!!title && (
+                            <div className={styles.titleWrapper}>
+                                <Text variant={TextVariant.L}>{title}</Text>
+                            </div>
+                        )}
                         {children}
                     </div>
                 </div>

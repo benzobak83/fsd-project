@@ -15,6 +15,14 @@
     text-align: center;
 }
 
+.titleWrapper {
+    border-bottom: 1px dashed var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+
+
 .Modal.opened {
     z-index: var(--modal-z-index);
     pointer-events: all;

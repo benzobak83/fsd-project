@@ -41,8 +41,6 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
 
     return (
         <div className={cn(styles.LoginForm, {}, [className])}>
-            {!!error && error}
-            <Text color={TextColor.ERROR}>fdfd</Text>
             <Input
                 label="Логин"
                 autoFocus
@@ -64,6 +62,11 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
                     Войти
                 </Button>
             </div>
+            {error && (
+                <div className={styles.errorWrapper}>
+                    <Text color={TextColor.ERROR}>{error}</Text>
+                </div>
+            )}
         </div>
     )
 }

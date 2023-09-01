@@ -9,7 +9,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
         build: '',
         html: '',
         entry: '',
-        src: path.resolve(__dirname, '..', '..', 'src')
+        src: path.resolve(__dirname, '..', '..', 'src'),
     }
     config.resolve.modules.push(paths.src)
     config.resolve.extensions.push('.ts', '.tsx')
@@ -25,6 +25,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
     config.module.rules.push(buildSvgLoader())
     config.module.rules.push(buildCssLoader(true))
+
+    config.plugins.push(
+        new webpack.DefinePlugin({
+            __IS_DEV__: JSON.stringify(true),
+        })
+    )
 
     return config
 }
