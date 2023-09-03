@@ -1,14 +1,15 @@
 import { Button, ButtonVariant } from 'shared/ui/Button/Button'
-import { FC, useCallback } from 'react'
 import { Input } from 'shared/ui/Input/Input'
 import { Text, TextColor } from 'shared/ui/Text/Text'
 import { cn } from 'shared/lib/classNames/classNames'
 import { getLoginState } from '../../model/selectors/getLoginState'
-import { loginActions } from '../..//model/slice/loginSlice'
+import { loginActions, loginReducer } from '../..//model/slice/loginSlice'
 import { loginByUsername } from '../..//model/services/loginByUsername/loginByUsername'
+import { memo, useCallback, useEffect } from 'react'
 import {
     useAppDispatch,
     useAppSelector,
+    useStoreWithReducerManager,
 } from 'shared/lib/hooks/useTypedSelectorAndDispatch'
 import styles from './LoginForm.module.scss'
 
@@ -16,10 +17,11 @@ interface LoginFormProps {
     className?: string
 }
 
-export const LoginForm: FC<LoginFormProps> = ({ className }) => {
+const LoginForm = memo<LoginFormProps>(({ className }) => {
     const dispatch = useAppDispatch()
-    const { password, username, isLoading, error } =
-        useAppSelector(getLoginState)
+    const store = useStoreWithReducerManager()
+
+    const loginState = useAppSelector(getLoginState)
 
     const onChangeUsername = useCallback(
         (username: string) => {
@@ -36,8 +38,30 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
     )
 
     const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }))
-    }, [dispatch, username, password])
+        dispatch(
+            loginByUsername({
+                username: loginState?.username,
+                password: loginState?.password,
+            })
+        )
+    }, [dispatch, loginState?.username, loginState?.password])
+
+    useEffect(() => {
+        store.reducerManager.add('login', loginReducer)
+        dispatch({ type: '@INIT login reducer' })
+
+        return () => {
+            store.reducerManager.remove('login')
+            dispatch({ type: '@REMOVE login reducer' })
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    if (!Object.keys(loginState || {}).length) {
+        return null
+    }
+
+    const { username, password, error, isLoading } = loginState
 
     return (
         <div className={cn(styles.LoginForm, {}, [className])}>
@@ -69,4 +93,6 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
             )}
         </div>
     )
-}
+})
+
+export default LoginForm

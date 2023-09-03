@@ -1,6 +1,6 @@
 import { Button } from 'shared/ui/Button/Button'
 import { FC, useCallback } from 'react'
-import { LoginForm } from 'features/AuthByUsername'
+import { LoginFormAsync } from 'features/AuthByUsername'
 import { Modal } from 'shared/ui/Modal/Modal'
 import { cn } from 'shared/lib/classNames/classNames'
 import { getAuthData, userActions } from 'entities/User'
@@ -51,7 +51,7 @@ export const NavBar: FC<NavbarProps> = ({ className }) => {
                 </div>
             </div>
             <Modal {...registerModal('loginModal')} title="Авторизация">
-                <LoginForm />
+                <LoginFormAsync />
             </Modal>
         </>
     )
